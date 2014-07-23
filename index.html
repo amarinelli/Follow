@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+  
+    <title>Index</title>
+    <meta name="description" content="Index">
+    
+    <script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
+    <script src='http://code.jquery.com/jquery-1.11.1.js'></script>
+  
+  </head>
+
+  <body>
+    <input type='text' id='locationX' placeholder='X'>
+    <input type='text' id='locationY' placeholder='Y'>
+    
+    <script>
+      var myDataRef = new Firebase('https://followapp.firebaseio.com/');
+      $('#locationY').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var locX = $('#locationX').val();
+          var locY = $('#locationY').val();
+          myDataRef.push({X: locX, Y: locY});
+          $('#locationX').val('');
+          $('#locationY').val('');
+        }
+      });
+    </script>
+  </body>
+  
+</html>
