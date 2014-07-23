@@ -1,7 +1,9 @@
 <!doctype html>
 
 <html>
+
   <head>
+  
     <meta charset="utf-8">
   
     <title>Index</title>
@@ -9,25 +11,24 @@
     
     <script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
     <script src='http://code.jquery.com/jquery-1.11.1.js'></script>
-  
+	<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+	<script src='js/follow.js'></script>
+	
+	<link rel="stylesheet" href="css/style.css"/>
+	
   </head>
 
   <body>
-    <input type='text' id='locationX' placeholder='X'>
-    <input type='text' id='locationY' placeholder='Y'>
+	
+	<div id='inputs'>
+		<input type='search' id='userName' placeholder='User'>
+		<input type='text' id='locationX' placeholder='X'>
+		<input type='text' id='locationY' placeholder='Y'>
+		<button type='button' id='mapXY'>Map</button>
+	</div>
+	
+	<div id="map-canvas"></div>
     
-    <script>
-      var myDataRef = new Firebase('https://followapp.firebaseio.com/');
-      $('#locationY').keypress(function (e) {
-        if (e.keyCode == 13) {
-          var locX = $('#locationX').val();
-          var locY = $('#locationY').val();
-          myDataRef.push({X: locX, Y: locY});
-          $('#locationX').val('');
-          $('#locationY').val('');
-        }
-      });
-    </script>
   </body>
   
 </html>
