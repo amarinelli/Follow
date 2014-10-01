@@ -1,15 +1,10 @@
 $(document).ready(function() {
 	initialize()
     $("#mapXY").click(function(){
-        alert("button");
-    }); 
-})
-
-
-
-var myDataRef = new Firebase('https://followapp.firebaseio.com/');
-      $('#locationY').keypress(function (e) {
-        if (e.keyCode == 13) {
+        var myDataRef = new Firebase('https://followapp.firebaseio.com/');
+      
+        
+		  console.log("enter");
 		  var user = $('#userName').val();
           var locX = $('#locationX').val();
           var locY = $('#locationY').val();
@@ -20,9 +15,10 @@ var myDataRef = new Firebase('https://followapp.firebaseio.com/');
 		  });
           $('#locationX').val('');
           $('#locationY').val('');
-        }
-      });
-	  
+        
+      
+    }); 
+})	  
 
 	  
 var map;
